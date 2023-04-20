@@ -3,9 +3,9 @@ import { getWeather } from "../services";
 import { getWeatherDto } from "../dtos/weather.dto";
 export const myhandler = async (event: any) => {
   try{
-
-    // this is my code, this is my destiny
-
+    if(!event.queryStringParameters){
+      throw new Error("Missing required parameters");
+    }
     const countryCode = event.queryStringParameters.countryCode;
     const postcode = event.queryStringParameters.postcode;
     const apiKey = event.queryStringParameters.apiKey;
