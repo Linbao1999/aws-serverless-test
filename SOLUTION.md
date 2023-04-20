@@ -28,7 +28,7 @@ In addition to the folders in the boilerplate, I added additional folders:
 
 ## Architecture
 
-Handler function -> Service layer function -> API helper function
+Handler function (Parse and clean request data) -> Service layer function (handles business logic) -> API helper function (util function for fetching data using third-party API)
 
 ### Data Validation
 
@@ -49,4 +49,4 @@ The chat bot will attach a secret key in the header, which should be the same as
 ## Possible Improvements
 
 1. When the postcode and country code do not match, return error message based on the response  received from OpenWeatherMap API.
-2. Validate the numeric values of the data returned by OpenWeatherMap API by checking if they fall in a reasonable value range, but it is very unlikely for them to return invalid data. This could be done with `class-validator`. 
+2. Validate the numeric values of the data returned by OpenWeatherMap API by checking if they fall in a reasonable value range. This could be done with `class-validator`. 
