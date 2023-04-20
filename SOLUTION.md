@@ -6,8 +6,9 @@ Steps to deploy and test the service:
 
 1. Git clone 
 2. `yarn install`
-3. `npx serverless offline start`
-4. Send request to http://localhost:3000/development/weather
+3. Create a `.env` file, add envirnment variables `API_KEY`(anything is fine) and `OPEN_WEATHER_API_KEY` (the key for accessing Open Weather Map API)
+4. `npx serverless offline start`
+5. Send request to http://localhost:3000/development/weather
    - Sample request:
      - query parameters:
        - apiKey: the one you set in `.env`
@@ -43,7 +44,7 @@ I added an API helper class for fetching weather data from third-party API, whic
 
 ## Security
 
-Given that the API is only supposed to be used by the chatbot, I will assume that the chat bot can store a secret key to authenticate itself to the server. 
+The chat bot will attach a secret key in the header, which should be the same as the one that gets stored in the server-side. This won't be very secure with HTTP request, but with HTTPS request it is relatively safe. 
 
 ## Possible Improvements
 
